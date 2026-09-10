@@ -18,14 +18,47 @@ Python 기반 머신러닝 모델·파이프라인을 위한 구현 규약입니
 
 ## 사용 방법
 
-원하는 프로젝트의 스킬 디렉터리에 복사합니다.
+### Codex에서 사용
 
-```bash
-mkdir -p .claude/skills
-cp -R python-ml-pipeline-conventions .claude/skills/
+Codex 안에서는 내장 설치 도구를 호출해 GitHub 저장소에서 설치할 수 있습니다.
+
+```text
+$skill-installer SungsooKwon/ai-template-skill
 ```
 
-그 뒤 새 모델, 학습·추론·최적화 파이프라인, YAML 설정, 산출물을 추가하거나 수정하는 작업에서 이 스킬을 사용하면 됩니다.
+Codex 전역 스킬로 설치하면 모든 프로젝트에서 사용할 수 있습니다.
+
+```bash
+git clone https://github.com/SungsooKwon/ai-template-skill.git /tmp/ai-template-skill
+mkdir -p ~/.agents/skills
+cp -R /tmp/ai-template-skill/python-ml-pipeline-conventions ~/.agents/skills/
+```
+
+특정 프로젝트에서만 사용할 때는 해당 프로젝트 루트에 설치합니다.
+
+```bash
+git clone https://github.com/SungsooKwon/ai-template-skill.git /tmp/ai-template-skill
+mkdir -p .agents/skills
+cp -R /tmp/ai-template-skill/python-ml-pipeline-conventions .agents/skills/
+```
+
+Codex는 작업이 스킬 설명과 일치하면 자동으로 선택할 수 있습니다. 확실히 적용하려면 프롬프트에 `$python-ml-pipeline-conventions`를 넣습니다.
+
+```text
+$python-ml-pipeline-conventions 새 예측 모델의 학습 파이프라인을 추가해줘.
+```
+
+설치 또는 업데이트가 보이지 않으면 Codex를 재시작합니다.
+
+### Claude Code에서 사용
+
+Claude Code를 사용하는 프로젝트라면 기존처럼 `.claude/skills`에 복사할 수 있습니다.
+
+```bash
+git clone https://github.com/SungsooKwon/ai-template-skill.git /tmp/ai-template-skill
+mkdir -p .claude/skills
+cp -R /tmp/ai-template-skill/python-ml-pipeline-conventions .claude/skills/
+```
 
 ## 커스터마이즈
 
